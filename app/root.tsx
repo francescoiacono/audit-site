@@ -8,7 +8,8 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import "./app.css";
+import stylesheet from "./app.css?url";
+import { styles } from "./root.style";
 
 /** Props accepted by the root document layout. */
 type LayoutProps = {
@@ -17,7 +18,7 @@ type LayoutProps = {
 };
 
 /** Returns document-level link tags for React Router. */
-export const links: Route.LinksFunction = () => [];
+export const links: Route.LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }];
 
 /** Renders the shared HTML document shell for every route. */
 export function Layout({ children }: LayoutProps) {
@@ -60,11 +61,11 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
+    <main className={styles}>
       <h1>{message}</h1>
       <p>{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre>
           <code>{stack}</code>
         </pre>
       )}

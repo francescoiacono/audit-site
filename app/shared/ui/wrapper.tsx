@@ -1,6 +1,7 @@
 import type { ElementType, HTMLAttributes, ReactNode } from "react";
 
 import { cn } from "../lib/cn";
+import { styles } from "./wrapper.style";
 
 /** HTML elements supported by the layout wrapper component. */
 type WrapperElement = Extract<
@@ -19,7 +20,7 @@ type WrapperProps = HTMLAttributes<HTMLElement> & {
 /** Renders a centered content container with consistent horizontal spacing. */
 export function Wrapper({ as: Component = "div", children, className, ...props }: WrapperProps) {
   return (
-    <Component className={cn("wrapper", className)} {...props}>
+    <Component className={cn(styles, className)} {...props}>
       {children}
     </Component>
   );

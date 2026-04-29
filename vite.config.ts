@@ -1,5 +1,4 @@
 import { reactRouter } from "@react-router/dev/vite";
-import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite-plus";
 
 export default defineConfig({
@@ -8,7 +7,7 @@ export default defineConfig({
   },
   fmt: {},
   lint: { options: { typeAware: true, typeCheck: true } },
-  plugins: [tailwindcss(), reactRouter()],
+  plugins: [reactRouter()],
   resolve: {
     tsconfigPaths: true,
   },
