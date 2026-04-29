@@ -10,9 +10,17 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 
+/** Props accepted by the root document layout. */
+type LayoutProps = {
+  /** Route content rendered inside the document body. */
+  children: React.ReactNode;
+};
+
+/** Returns document-level link tags for React Router. */
 export const links: Route.LinksFunction = () => [];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+/** Renders the shared HTML document shell for every route. */
+export function Layout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <head>
@@ -30,15 +38,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+/** Renders the currently matched route. */
 export default function App() {
   return <Outlet />;
 }
 
+/** Renders route errors with concise production-safe details. */
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
 
+  // Map known route responses to clear messages, and show stack traces only in development.
   if (isRouteErrorResponse(error)) {
     message = error.status === 404 ? "404" : "Error";
     details =

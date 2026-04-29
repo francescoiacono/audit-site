@@ -2,3 +2,14 @@ html,
 body {
   margin: 0;
 }
+
+.wrapper {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .wrapper {
+    width: min(100% - 3rem, 72rem);
+  }
+}
