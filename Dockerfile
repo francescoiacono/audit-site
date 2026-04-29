@@ -23,7 +23,7 @@ COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
 RUN pnpm exec panda codegen && pnpm build
 
-FROM base AS runner
+FROM base AS production
 
 ENV NODE_ENV="production"
 ENV PORT="3000"
