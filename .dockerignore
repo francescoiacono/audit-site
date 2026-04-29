@@ -1,4 +1,7 @@
 .react-router
 build
 node_modules
+styled-system
+.git
+.vite-hooks/_
 README.md

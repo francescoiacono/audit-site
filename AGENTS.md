@@ -54,6 +54,7 @@ Place section-specific code inside its vertical. Put reusable primitives in `app
 
 - Use lowercase kebab-case for source file and folder names under `app`.
 - Keep React component exports in PascalCase so JSX can render them normally.
+- Prefer arrow functions assigned to `const` wherever the framework does not require a function declaration.
 - Use required framework/tooling filenames as-is when a tool expects them, such as `AGENTS.md`, `README.md`, or config files.
 
 ## Shared UI And Utilities
