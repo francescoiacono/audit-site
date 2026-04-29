@@ -62,6 +62,14 @@ Place section-specific code inside its vertical. Put reusable primitives in `app
 - Import shared UI through the barrel export in `app/shared/ui` when practical.
 - Use the shared `cn()` utility for class name composition. Do not manually join class names with array/filter/join patterns.
 
+## Styling
+
+- Use PandaCSS for styling. Do not add Tailwind dependencies, Tailwind directives, or Tailwind utility classes.
+- Put component styles in an adjacent lowercase kebab-case `.style.ts` file.
+- Each component style file should import `css` from `styled-system/css` and export `styles` from `css({ ... })`.
+- Use generated Panda class names from the adjacent `.style.ts` file inside the component, combining with optional caller classes through `cn()` when needed.
+- Keep `app/app.css` focused on Panda layer setup: `@layer reset, base, tokens, recipes, utilities;`. Add only true global CSS there when Panda cannot reasonably own it.
+
 ## Documentation
 
 - Add TSDoc comments to utility functions, including utility functions defined inside components.
