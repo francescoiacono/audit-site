@@ -21,7 +21,7 @@ type LayoutProps = {
 export const links: Route.LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }];
 
 /** Renders the shared HTML document shell for every route. */
-export function Layout({ children }: LayoutProps) {
+export const Layout = ({ children }: LayoutProps) => {
   return (
     <html lang="en">
       <head>
@@ -37,15 +37,17 @@ export function Layout({ children }: LayoutProps) {
       </body>
     </html>
   );
-}
+};
 
 /** Renders the currently matched route. */
-export default function App() {
+const App = () => {
   return <Outlet />;
-}
+};
+
+export default App;
 
 /** Renders route errors with concise production-safe details. */
-export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+export const ErrorBoundary = ({ error }: Route.ErrorBoundaryProps) => {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
@@ -71,4 +73,4 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       )}
     </main>
   );
-}
+};

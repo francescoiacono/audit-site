@@ -1,11 +1,11 @@
 import { Wrapper } from "../shared/ui";
 
 /** Defines metadata for the home route. */
-export function meta() {
-  return [{ title: "hello world" }];
-}
+export const meta = () => [{ title: "hello world" }];
 
 /** Renders the home page content. */
-export default function Home() {
+const Home = () => {
   return <Wrapper as="main">hello world</Wrapper>;
-}
+};
+
+export default Home;

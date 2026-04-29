@@ -18,10 +18,10 @@ type WrapperProps = HTMLAttributes<HTMLElement> & {
 };
 
 /** Renders a centered content container with consistent horizontal spacing. */
-export function Wrapper({ as: Component = "div", children, className, ...props }: WrapperProps) {
+export const Wrapper = ({ as: Component = "div", children, className, ...props }: WrapperProps) => {
   return (
     <Component className={cn(styles, className)} {...props}>
       {children}
     </Component>
   );
-}
+};
