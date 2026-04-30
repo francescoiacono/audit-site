@@ -21,7 +21,10 @@ type LayoutProps = {
 };
 
 /** Returns document-level link tags for React Router. */
-export const links: Route.LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }];
+export const links: Route.LinksFunction = () => [
+  { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+  { rel: "stylesheet", href: stylesheet },
+];
 
 /** Renders the shared HTML document shell for every route. */
 export const Layout = ({ children }: LayoutProps) => {
