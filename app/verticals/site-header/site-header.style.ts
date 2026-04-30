@@ -7,58 +7,128 @@ export const styles = css({
   bg: "white",
 
   "& [data-slot='inner']": {
-    display: "flex",
+    display: "grid",
     alignItems: "center",
-    justifyContent: "space-between",
-    gap: "6",
+    gridTemplateColumns: "minmax(0, 1fr) auto",
+    columnGap: "4",
+    rowGap: "0",
     py: "4",
+
+    sm: {
+      gridTemplateColumns: "auto minmax(0, 1fr) auto",
+      columnGap: "6",
+    },
   },
 
   "& [data-slot='brand']": {
+    display: "inline-flex",
+    alignItems: "center",
+    gridColumn: "1",
+    gridRow: "1",
     color: "gray.950",
     fontSize: "sm",
     fontWeight: "semibold",
     letterSpacing: "normal",
-    whiteSpace: "nowrap",
-  },
+    lineHeight: "1.25",
+    minH: "11",
+    minW: "0",
+    overflowWrap: "anywhere",
 
-  "& [data-slot='nav']": {
-    display: "none",
-    alignItems: "center",
-    gap: "6",
+    _focusVisible: {
+      outline: "2px solid",
+      outlineColor: "gray.950",
+      outlineOffset: "3px",
+    },
 
     sm: {
-      display: "flex",
+      gridColumn: "auto",
+      gridRow: "auto",
     },
   },
 
-  "& [data-slot='link']": {
+  "& [data-slot='desktop-nav']": {
+    display: "none",
+    minW: "0",
+
+    sm: {
+      display: "flex",
+      alignItems: "center",
+      gridColumn: "auto",
+      gridRow: "auto",
+    },
+  },
+
+  "& [data-slot='desktop-nav-list']": {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "3",
+    listStyle: "none",
+    m: "0",
+    p: "0",
+    width: "100%",
+  },
+
+  "& [data-slot='desktop-link']": {
+    display: "inline-flex",
+    alignItems: "center",
+    borderRadius: "md",
     color: "gray.600",
     fontSize: "sm",
     fontWeight: "medium",
+    lineHeight: "1.25",
+    minH: "11",
+    px: "2",
+    py: "2",
     transition: "color 150ms ease",
 
     _hover: {
       color: "gray.950",
     },
+
+    _focusVisible: {
+      outline: "2px solid",
+      outlineColor: "gray.950",
+      outlineOffset: "3px",
+    },
   },
 
   "& [data-slot='cta']": {
+    display: "none",
+    alignItems: "center",
+    justifyContent: "center",
     border: "1px solid",
     borderColor: "gray.900",
     borderRadius: "full",
+    gridColumn: "2",
+    gridRow: "1",
+    justifySelf: "end",
     color: "gray.950",
     fontSize: "sm",
     fontWeight: "semibold",
     lineHeight: "1",
+    minH: "11",
     px: "4",
     py: "2.5",
+    textAlign: "center",
     whiteSpace: "nowrap",
     transition: "background-color 150ms ease, color 150ms ease",
 
     _hover: {
       bg: "gray.950",
       color: "white",
+    },
+
+    _focusVisible: {
+      outline: "2px solid",
+      outlineColor: "gray.950",
+      outlineOffset: "3px",
+    },
+
+    sm: {
+      display: "inline-flex",
+      gridColumn: "auto",
+      gridRow: "auto",
     },
   },
 });
