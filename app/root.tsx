@@ -8,8 +8,11 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
+import { defaultLocale, getCopy, I18nProvider } from "@/shared/i18n";
 import stylesheet from "./app.css?url";
 import { styles } from "./root.style";
+
+const appCopy = getCopy();
 
 /** Props accepted by the root document layout. */
 type LayoutProps = {
@@ -23,7 +26,7 @@ export const links: Route.LinksFunction = () => [{ rel: "stylesheet", href: styl
 /** Renders the shared HTML document shell for every route. */
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <html lang="en">
+    <html lang={defaultLocale}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,22 +44,25 @@ export const Layout = ({ children }: LayoutProps) => {
 
 /** Renders the currently matched route. */
 const App = () => {
-  return <Outlet />;
+  return (
+    <I18nProvider>
+      <Outlet />
+    </I18nProvider>
+  );
 };
 
 export default App;
 
 /** Renders route errors with concise production-safe details. */
 export const ErrorBoundary = ({ error }: Route.ErrorBoundaryProps) => {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
+  let message = appCopy.error.unexpectedTitle;
+  let details = appCopy.error.unexpectedDetails;
   let stack: string | undefined;
 
   // Map known route responses to clear messages, and show stack traces only in development.
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
-    details =
-      error.status === 404 ? "The requested page could not be found." : error.statusText || details;
+    message = error.status === 404 ? appCopy.error.notFoundTitle : appCopy.error.routeErrorTitle;
+    details = error.status === 404 ? appCopy.error.notFoundDetails : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message;
     stack = error.stack;
