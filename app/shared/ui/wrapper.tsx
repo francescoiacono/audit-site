@@ -1,6 +1,6 @@
 import type { ElementType, HTMLAttributes, ReactNode } from "react";
 
-import { cn } from "../lib/cn";
+import { cn } from "@/shared/lib/cn";
 import { styles } from "./wrapper.style";
 
 /** HTML elements supported by the layout wrapper component. */
