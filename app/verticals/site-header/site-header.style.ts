@@ -25,6 +25,7 @@ export const styles = css({
     alignItems: "center",
     gridColumn: "1",
     gridRow: "1",
+    justifySelf: "start",
     color: "gray.950",
     fontSize: "sm",
     fontWeight: "semibold",

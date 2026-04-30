@@ -94,7 +94,7 @@ export const styles = css({
   },
 
   "& [data-slot='link']": {
-    display: "flex",
+    display: "inline-flex",
     alignItems: "center",
     borderRadius: "sm",
     color: "gray.600",
@@ -105,7 +105,6 @@ export const styles = css({
     px: "3",
     py: "2",
     transition: "color 150ms ease",
-    width: "100%",
 
     _hover: {
       color: "gray.950",
