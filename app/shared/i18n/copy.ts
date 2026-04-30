@@ -22,6 +22,8 @@ export type SiteIdentityCopy = {
 export type SiteHeaderCopy = {
   /** Navigation links displayed in the primary navigation. */
   navigationItems: readonly HeaderNavigationItemCopy[];
+  /** Visible label for the mobile navigation menu button. */
+  menuButtonLabel: string;
   /** Visible label for the header call-to-action link. */
   ctaLabel: string;
 };
@@ -30,8 +32,8 @@ export type SiteHeaderCopy = {
 export type HomeCopy = {
   /** Browser title for the home route. */
   metaTitle: string;
-  /** Temporary page body copy for the home route. */
-  body: string;
+  /** Visible page heading. */
+  title: string;
 };
 
 /** Copy displayed by the root error boundary. */
@@ -74,11 +76,12 @@ export const copy = {
         { href: "#case-studies", label: "Case studies" },
         { href: "#contact", label: "Contact" },
       ],
+      menuButtonLabel: "Menu",
       ctaLabel: "Book an audit",
     },
     home: {
-      metaTitle: "hello world",
-      body: "hello world",
+      metaTitle: "Website Audits | audit.iacono.dev",
+      title: "Audits for clearer, faster, more accessible websites.",
     },
     error: {
       unexpectedTitle: "Oops!",

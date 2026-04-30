@@ -14,7 +14,9 @@ const Home = () => {
   return (
     <>
       <SiteHeader />
-      <Wrapper as="main">{copy.home.body}</Wrapper>
+      <Wrapper as="main">
+        <h1 id="home-title">{copy.home.title}</h1>
+      </Wrapper>
     </>
   );
 };
