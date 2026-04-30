@@ -71,6 +71,19 @@ Place section-specific code inside its vertical. Put reusable primitives in `app
 - Use generated Panda class names from the adjacent `.style.ts` file inside the component, combining with optional caller classes through `cn()` when needed.
 - Keep `app/app.css` focused on Panda layer setup: `@layer reset, base, tokens, recipes, utilities;`. Add only true global CSS there when Panda cannot reasonably own it.
 
+## Accessibility
+
+- Treat WCAG 2.2 AA as the baseline for user-facing work, and prefer inclusive defaults even when a requirement is not explicitly covered by automated checks.
+- Start with semantic HTML: use meaningful landmarks, headings in document order, lists for grouped content, and native links or buttons for interactive controls before reaching for ARIA.
+- Give every interactive control an accessible name, a visible focus state, and keyboard behavior that works with Tab, Shift+Tab, Enter, Escape, and Space where those keys are expected.
+- Keep visible text, accessible labels, image alt text, form labels, helper text, error text, and status messages in the i18n copy layer when they are user-facing.
+- Do not remove browser focus outlines without replacing them with a clearly visible PandaCSS focus style that passes contrast expectations.
+- Do not rely on color alone to convey state. Pair color with text, iconography, shape, or another non-color cue.
+- Respect reduced-motion preferences for non-essential animation, transitions, parallax, smooth scrolling, and auto-playing movement.
+- For images and media, provide useful alt text for informative content, empty alt text for decorative images, captions or transcripts when needed, and avoid text embedded only in images.
+- For forms, pair every field with a programmatic label, connect help and error text with ARIA relationships, and make validation errors readable without moving focus unexpectedly.
+- Validate substantial UI changes with keyboard-only navigation and at least one accessibility-oriented check, such as browser accessibility inspection or an automated audit, in addition to `vp check`.
+
 ## Documentation
 
 - Add TSDoc comments to utility functions, including utility functions defined inside components.
