@@ -9,46 +9,9 @@ export const styles = css({
   },
 
   "& [data-slot='button']": {
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    border: "1px solid",
-    borderColor: "transparent",
-    borderRadius: "full",
     gridColumn: "2",
     gridRow: "1",
     justifySelf: "end",
-    bg: "transparent",
-    color: "gray.950",
-    lineHeight: "1",
-    h: "11",
-    p: "0",
-    transition: "background-color 150ms ease, color 150ms ease",
-    w: "11",
-
-    _hover: {
-      bg: "gray.100",
-    },
-
-    _focusVisible: {
-      outline: "2px solid",
-      outlineColor: "gray.950",
-      outlineOffset: "3px",
-    },
-  },
-
-  "&[data-menu-open='true'] [data-slot='button']": {
-    bg: "gray.950",
-    color: "white",
-
-    _hover: {
-      bg: "gray.800",
-    },
-  },
-
-  "& [data-slot='icon']": {
-    flexShrink: "0",
-    pointerEvents: "none",
   },
 
   "& [data-slot='nav']": {
@@ -97,7 +60,7 @@ export const styles = css({
     display: "inline-flex",
     alignItems: "center",
     borderRadius: "sm",
-    color: "gray.600",
+    color: "text.secondary",
     fontSize: "sm",
     fontWeight: "medium",
     lineHeight: "1.25",
@@ -107,44 +70,23 @@ export const styles = css({
     transition: "color 150ms ease",
 
     _hover: {
-      color: "gray.950",
+      color: "text.primary",
     },
 
     _focusVisible: {
-      bg: "gray.50",
-      boxShadow: "inset 0 0 0 2px token(colors.gray.950)",
-      color: "gray.950",
+      bg: "background.page",
+      boxShadow: "inset 0 0 0 2px token(colors.accent.blue)",
+      color: "text.primary",
       outline: "none",
     },
   },
 
+  "& [data-slot='cta-item']": {
+    pt: "3",
+  },
+
   "& [data-slot='cta']": {
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    border: "1px solid",
-    borderColor: "gray.900",
-    borderRadius: "full",
-    color: "gray.950",
-    fontSize: "sm",
-    fontWeight: "semibold",
-    lineHeight: "1",
-    minH: "11",
-    px: "4",
-    py: "2.5",
-    textAlign: "center",
-    transition: "background-color 150ms ease, color 150ms ease",
-
-    _hover: {
-      bg: "gray.950",
-      color: "white",
-    },
-
-    _focusVisible: {
-      outline: "2px solid",
-      outlineColor: "gray.950",
-      outlineOffset: "2px",
-    },
+    width: "100%",
   },
 
   "@media (prefers-reduced-motion: reduce)": {

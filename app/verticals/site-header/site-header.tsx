@@ -1,5 +1,7 @@
+import { ArrowRight } from "lucide-react";
+
 import { useCopy } from "@/shared/i18n";
-import { Wrapper } from "@/shared/ui";
+import { ButtonLink, Wrapper } from "@/shared/ui";
 import { MobileMenu } from "./mobile-menu";
 import { styles } from "./site-header.style";
 
@@ -30,9 +32,16 @@ export const SiteHeader = () => {
             ))}
           </ul>
         </nav>
-        <a href="#contact" data-slot="cta">
+        <ButtonLink
+          href="#contact"
+          data-slot="desktop-cta"
+          iconMotion="slide-right"
+          iconRight={<ArrowRight focusable="false" strokeWidth={2} />}
+          variant="outline"
+          size="sm"
+        >
           {header.ctaLabel}
-        </a>
+        </ButtonLink>
       </Wrapper>
     </header>
   );

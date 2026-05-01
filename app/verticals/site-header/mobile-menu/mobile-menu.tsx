@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 
 import type { HeaderNavigationItemCopy } from "@/shared/i18n";
+import { ButtonIcon, ButtonLink } from "@/shared/ui";
 import { styles } from "./mobile-menu.style";
 
 const navigationId = "site-header-mobile-navigation";
@@ -76,21 +77,23 @@ export const MobileMenu = ({
 
   return (
     <div ref={menuRef} className={styles} data-menu-open={isMenuOpen ? "true" : "false"}>
-      <button
+      <ButtonIcon
         ref={menuButtonRef}
-        type="button"
         data-slot="button"
         aria-label={menuButtonLabel}
         aria-controls={navigationId}
         aria-expanded={isMenuOpen}
+        color="primary"
         onClick={toggleMenu}
+        size="md"
+        variant={isMenuOpen ? "solid" : "ghost"}
       >
         {isMenuOpen ? (
-          <X aria-hidden="true" data-slot="icon" focusable="false" size={22} strokeWidth={2} />
+          <X aria-hidden="true" focusable="false" size={22} strokeWidth={2} />
         ) : (
-          <Menu aria-hidden="true" data-slot="icon" focusable="false" size={22} strokeWidth={2} />
+          <Menu aria-hidden="true" focusable="false" size={22} strokeWidth={2} />
         )}
-      </button>
+      </ButtonIcon>
       <nav
         id={navigationId}
         data-slot="nav"
@@ -105,10 +108,17 @@ export const MobileMenu = ({
               </a>
             </li>
           ))}
-          <li>
-            <a href="#contact" data-slot="cta" onClick={closeMenu}>
+          <li data-slot="cta-item">
+            <ButtonLink
+              href="#contact"
+              data-slot="cta"
+              iconMotion="slide-right"
+              iconRight={<ArrowRight focusable="false" strokeWidth={2} />}
+              variant="outline"
+              onClick={closeMenu}
+            >
               {ctaLabel}
-            </a>
+            </ButtonLink>
           </li>
         </ul>
       </nav>
