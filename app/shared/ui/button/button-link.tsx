@@ -10,7 +10,9 @@ import {
 } from "./button.style";
 
 /** Props accepted by the shared button link component. */
-export type ButtonLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "color"> & {
+export type ButtonLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "color" | "href"> & {
+  /** Required destination so the rendered anchor keeps link semantics. */
+  href: string;
   /** Visible content that gives the link its accessible name. */
   children: ReactNode;
   /** Visual treatment applied to the link. */

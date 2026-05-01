@@ -7,6 +7,7 @@ import {
   type ButtonIconMotion,
   type ButtonSize,
   type ButtonVariant,
+  visuallyHidden,
 } from "./button.style";
 
 export type { ButtonColor, ButtonIconMotion, ButtonSize, ButtonVariant } from "./button.style";
@@ -27,6 +28,8 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color">
   iconRight?: ReactNode;
   /** Optional motion applied to the right icon on hover and focus. */
   iconMotion?: ButtonIconMotion;
+  /** Assistive status announced while the button is loading. */
+  loadingLabel?: string;
   /** Shows a progress spinner and disables the button while work is pending. */
   loading?: boolean;
 };
@@ -41,6 +44,7 @@ export const Button = ({
   iconMotion,
   iconRight,
   loading = false,
+  loadingLabel = "Loading",
   size = "md",
   type = "button",
   variant = "solid",
@@ -50,27 +54,32 @@ export const Button = ({
   const ariaBusy = loading ? true : props["aria-busy"];
 
   return (
-    <button
-      {...props}
-      aria-busy={ariaBusy}
-      className={cn(buttonRecipe({ color, size, variant }), className)}
-      data-icon-motion={iconMotion}
-      data-loading={loading ? "true" : undefined}
-      disabled={isDisabled}
-      type={type}
-    >
-      {loading && <span aria-hidden="true" data-slot="spinner" />}
-      {iconLeft && (
-        <span aria-hidden="true" data-slot="icon-left">
-          {iconLeft}
-        </span>
-      )}
-      <span data-slot="content">{children}</span>
-      {iconRight && (
-        <span aria-hidden="true" data-slot="icon-right">
-          {iconRight}
-        </span>
-      )}
-    </button>
+    <>
+      <button
+        {...props}
+        aria-busy={ariaBusy}
+        className={cn(buttonRecipe({ color, size, variant }), className)}
+        data-icon-motion={iconMotion}
+        data-loading={loading ? "true" : undefined}
+        disabled={isDisabled}
+        type={type}
+      >
+        {loading && <span aria-hidden="true" data-slot="spinner" />}
+        {iconLeft && (
+          <span aria-hidden="true" data-slot="icon-left">
+            {iconLeft}
+          </span>
+        )}
+        <span data-slot="content">{children}</span>
+        {iconRight && (
+          <span aria-hidden="true" data-slot="icon-right">
+            {iconRight}
+          </span>
+        )}
+      </button>
+      <span aria-atomic="true" className={visuallyHidden} role="status">
+        {loading ? loadingLabel : undefined}
+      </span>
+    </>
   );
 };

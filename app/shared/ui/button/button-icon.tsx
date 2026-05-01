@@ -6,6 +6,7 @@ import {
   type ButtonColor,
   type ButtonSize,
   type ButtonVariant,
+  visuallyHidden,
 } from "./button.style";
 
 /** Props accepted by the shared icon-only button component. */
@@ -23,6 +24,8 @@ export type ButtonIconProps = Omit<
   color?: ButtonColor;
   /** Button size controlling the square hit target. */
   size?: ButtonSize;
+  /** Assistive status announced while the button is loading. */
+  loadingLabel?: string;
   /** Shows a progress spinner and disables the button while work is pending. */
   loading?: boolean;
 };
@@ -36,6 +39,7 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       color = "primary",
       disabled,
       loading = false,
+      loadingLabel = "Loading",
       size = "md",
       type = "button",
       variant = "ghost",
@@ -47,23 +51,28 @@ export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
     const ariaBusy = loading ? true : props["aria-busy"];
 
     return (
-      <button
-        {...props}
-        ref={ref}
-        aria-busy={ariaBusy}
-        className={cn(buttonRecipe({ color, shape: "icon", size, variant }), className)}
-        data-loading={loading ? "true" : undefined}
-        disabled={isDisabled}
-        type={type}
-      >
-        {loading ? (
-          <span aria-hidden="true" data-slot="spinner" />
-        ) : (
-          <span aria-hidden="true" data-slot="icon">
-            {children}
-          </span>
-        )}
-      </button>
+      <>
+        <button
+          {...props}
+          ref={ref}
+          aria-busy={ariaBusy}
+          className={cn(buttonRecipe({ color, shape: "icon", size, variant }), className)}
+          data-loading={loading ? "true" : undefined}
+          disabled={isDisabled}
+          type={type}
+        >
+          {loading ? (
+            <span aria-hidden="true" data-slot="spinner" />
+          ) : (
+            <span aria-hidden="true" data-slot="icon">
+              {children}
+            </span>
+          )}
+        </button>
+        <span aria-atomic="true" className={visuallyHidden} role="status">
+          {loading ? loadingLabel : undefined}
+        </span>
+      </>
     );
   },
 );
