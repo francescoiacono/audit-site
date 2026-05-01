@@ -28,12 +28,66 @@ export type SiteHeaderCopy = {
   ctaLabel: string;
 };
 
+/** Copy for a hero call-to-action link. */
+export type HeroCallToActionCopy = {
+  /** Anchor target for the call-to-action link. */
+  href: string;
+  /** Visible label for the call-to-action link. */
+  label: string;
+};
+
+/** Copy for one checklist item in the hero visual. */
+export type HeroVisualChecklistItemCopy = {
+  /** Visible checklist item label. */
+  label: string;
+};
+
+/** Copy for one metric in the hero visual. */
+export type HeroVisualMetricCopy = {
+  /** Visible metric label. */
+  label: string;
+  /** Visible metric score. */
+  score: string;
+  /** Visible metric status. */
+  status: string;
+};
+
+/** Copy displayed in the decorative hero visual. */
+export type HeroVisualCopy = {
+  /** Visible browser address shown inside the visual. */
+  browserUrl: string;
+  /** Visible title for the checklist card. */
+  checklistTitle: string;
+  /** Checklist items displayed in the visual. */
+  checklistItems: readonly HeroVisualChecklistItemCopy[];
+  /** Visible title for the primary score card. */
+  scoreTitle: string;
+  /** Visible primary audit score. */
+  scoreValue: string;
+  /** Visible primary audit score status. */
+  scoreStatus: string;
+  /** Metrics displayed in the score summary card. */
+  metrics: readonly HeroVisualMetricCopy[];
+};
+
+/** Copy displayed by the hero vertical. */
+export type HeroCopy = {
+  /** Main page heading. */
+  title: string;
+  /** Supporting text displayed under the main heading. */
+  description: string;
+  /** Primary hero call-to-action link. */
+  primaryCta: HeroCallToActionCopy;
+  /** Secondary hero call-to-action link. */
+  secondaryCta: HeroCallToActionCopy;
+  /** Decorative audit visual copy. */
+  visual: HeroVisualCopy;
+};
+
 /** Copy owned by the home route. */
 export type HomeCopy = {
   /** Browser title for the home route. */
   metaTitle: string;
-  /** Visible page heading. */
-  title: string;
 };
 
 /** Copy displayed by the root error boundary. */
@@ -56,6 +110,8 @@ export type SiteCopy = {
   site: SiteIdentityCopy;
   /** Header-specific copy. */
   header: SiteHeaderCopy;
+  /** Hero-specific copy. */
+  hero: HeroCopy;
   /** Home route copy. */
   home: HomeCopy;
   /** Error boundary copy. */
@@ -79,9 +135,33 @@ export const copy = {
       menuButtonLabel: "Menu",
       ctaLabel: "Book an audit",
     },
+    hero: {
+      title: "Audits for clearer, faster, more accessible websites.",
+      description:
+        "I review the frontend details that affect trust, search visibility, and conversion, then turn the findings into a focused plan your site can act on.",
+      primaryCta: { href: "#contact", label: "Book an audit" },
+      secondaryCta: { href: "#services", label: "See services" },
+      visual: {
+        browserUrl: "yourwebsite.com",
+        checklistTitle: "Audit checklist",
+        checklistItems: [
+          { label: "SEO" },
+          { label: "Accessibility" },
+          { label: "Performance" },
+          { label: "Best practices" },
+        ],
+        scoreTitle: "Audit score",
+        scoreValue: "92",
+        scoreStatus: "Excellent",
+        metrics: [
+          { label: "SEO", score: "90", status: "Good" },
+          { label: "Accessibility", score: "94", status: "Excellent" },
+          { label: "Performance", score: "88", status: "Good" },
+        ],
+      },
+    },
     home: {
       metaTitle: "Website Audits | audit.iacono.dev",
-      title: "Audits for clearer, faster, more accessible websites.",
     },
     error: {
       unexpectedTitle: "Oops!",
