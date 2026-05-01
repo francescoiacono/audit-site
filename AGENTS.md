@@ -60,8 +60,12 @@ Place section-specific code inside its vertical. Put reusable primitives in `app
 ## Shared UI And Utilities
 
 - Use the shared `Wrapper` component for consistent page width and horizontal spacing in headers, body content, and sections.
+- Place reusable UI primitives in their own folder under `app/shared/ui`, with an `index.ts` barrel for each component folder.
 - Import shared UI through the barrel export in `app/shared/ui` when practical.
 - Use the shared `cn()` utility for class name composition. Do not manually join class names with array/filter/join patterns.
+- Use the shared `Button`, `ButtonLink`, and `ButtonIcon` primitives for button-like interactions instead of restyling anchors or buttons inside verticals.
+- Use `ButtonLink` for navigational CTAs and native `Button` for actions or form submission.
+- Use `ButtonIcon` for icon-only controls, and always provide an accessible label.
 
 ## Styling
 
@@ -70,6 +74,11 @@ Place section-specific code inside its vertical. Put reusable primitives in `app
 - Each component style file should import `css` from `styled-system/css` and export `styles` from `css({ ... })`.
 - Use generated Panda class names from the adjacent `.style.ts` file inside the component, combining with optional caller classes through `cn()` when needed.
 - Keep `app/app.css` focused on Panda layer setup: `@layer reset, base, tokens, recipes, utilities;`. Add only true global CSS there when Panda cannot reasonably own it.
+
+## Interaction States
+
+- Shared interactive components should define hover, focus-visible, disabled, loading, and reduced-motion behavior at the primitive or recipe level where possible.
+- Focus-visible states should be visually clear and should not overflow or clip awkwardly in constrained layouts.
 
 ## Accessibility
 

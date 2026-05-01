@@ -1,87 +1,131 @@
-# Welcome to React Router!
+# audit-site
 
-A modern, production-ready template for building full-stack React applications using React Router.
+`audit.iacono.dev` is a one-page website for a frontend developer who improves websites through frontend fixes, technical SEO, and accessibility work.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+The site should feel clean, credible, and practical. It is not intended to feel like a large agency site.
 
-## Features
+## Stack
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎨 PandaCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- React 19
+- React Router 7
+- TypeScript
+- Vite+
+- PandaCSS
+- Lucide React icons
 
 ## Getting Started
 
-### Installation
-
-Install the dependencies:
+Install dependencies with Vite+:
 
 ```bash
-npm install
+vp install
 ```
 
-### Development
-
-Start the development server with HMR:
+Start the local development server:
 
 ```bash
-npm run dev
+vp run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+The app is available at `http://localhost:5173`.
 
-## Building for Production
+## Commands
+
+```bash
+vp check
+```
+
+Formats, lints, and type-checks the project.
+
+```bash
+vp run build
+```
+
+Creates the production build.
+
+```bash
+vp run start
+```
+
+Serves the built React Router app from `build/server/index.js`.
+
+```bash
+vp test
+```
+
+Runs tests when test files exist. At the moment, this project has no matching test files.
+
+## Project Structure
+
+The app uses a vertical structure for product sections and keeps reusable primitives in `app/shared`.
+
+```txt
+app/
+  routes/
+  shared/
+    i18n/
+    lib/
+    ui/
+      button/
+      wrapper/
+  verticals/
+    site-header/
+      mobile-menu/
+```
+
+Use `app/verticals` for section-specific UI and behavior. Use `app/shared/ui` for reusable primitives and `app/shared/lib` for reusable utilities.
+
+## Styling
+
+Styling is handled with PandaCSS.
+
+- Component styles live next to components in lowercase kebab-case `.style.ts` files.
+- Style files import `css` from `styled-system/css`.
+- Shared component variants use Panda recipes where that keeps behavior consistent.
+- Global CSS should stay minimal in `app/app.css`.
+
+The project color tokens are defined in `panda.config.ts`. Use semantic tokens such as `background.page`, `text.primary`, `text.secondary`, `border.default`, `border.subtle`, `accent.blue`, and `accent.green` in component styles instead of hard-coded hex values.
+
+## Shared UI
+
+Reusable UI primitives live in their own folders under `app/shared/ui` and are exported through barrels.
+
+Current primitives:
+
+- `Wrapper` for page width and horizontal spacing.
+- `Button` for native button actions and form submission.
+- `ButtonLink` for navigational CTAs.
+- `ButtonIcon` for icon-only controls with accessible labels.
+
+Prefer importing shared UI through `app/shared/ui` when practical.
+
+## Copy And Accessibility
+
+User-facing copy lives in `app/shared/i18n/copy.ts`.
+
+Accessibility expectations:
+
+- Use semantic HTML first.
+- Keep every interactive control keyboard-accessible.
+- Provide visible focus states.
+- Respect reduced-motion preferences.
+- Use accessible labels for icon-only controls.
+- Do not rely on color alone to communicate state.
+
+## Deployment
 
 Create a production build:
 
 ```bash
-npm run build
+vp run build
 ```
 
-## Deployment
+The React Router build output is written to:
 
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+```txt
+build/
+  client/
+  server/
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This project uses [PandaCSS](https://panda-css.com/) for styling. Component styles live next to components in `.style.ts` files and import `css` from `styled-system/css`.
-
----
-
-Built with ❤️ using React Router.
+The included `Dockerfile` can be used for container deployment.
