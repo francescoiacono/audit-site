@@ -8,6 +8,8 @@ export {
   type HeroVisualCopy,
   type HeroVisualMetricCopy,
   type HomeCopy,
+  type ServiceItemCopy,
+  type ServicesCopy,
   type SiteCopy,
   type SiteHeaderCopy,
   type SiteIdentityCopy,

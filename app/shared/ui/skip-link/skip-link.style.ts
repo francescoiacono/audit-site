@@ -5,7 +5,7 @@ export const styles = css({
   bg: "text.primary",
   border: "1px solid",
   borderColor: "text.primary",
-  borderRadius: "full",
+  borderRadius: "lg",
   color: "background.page",
   fontSize: "sm",
   fontWeight: "semibold",

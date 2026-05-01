@@ -21,7 +21,7 @@ export const buttonRecipe = cva({
     alignItems: "center",
     justifyContent: "center",
     border: "1px solid",
-    borderRadius: "full",
+    borderRadius: "lg",
     boxSizing: "border-box",
     fontFamily: "inherit",
     fontWeight: "semibold",

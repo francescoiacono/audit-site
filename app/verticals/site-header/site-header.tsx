@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-
 import { useCopy } from "@/shared/i18n";
 import { ButtonLink, Wrapper } from "@/shared/ui";
 import { MobileMenu } from "./mobile-menu";
@@ -36,7 +34,6 @@ export const SiteHeader = () => {
           href="#contact"
           data-slot="desktop-cta"
           iconMotion="slide-right"
-          iconRight={<ArrowRight focusable="false" strokeWidth={2} />}
           variant="outline"
           size="sm"
         >

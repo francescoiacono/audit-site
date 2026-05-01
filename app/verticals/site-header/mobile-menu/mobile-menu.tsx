@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 import type { HeaderNavigationItemCopy } from "@/shared/i18n";
 import { ButtonIcon, ButtonLink } from "@/shared/ui";
@@ -113,7 +113,6 @@ export const MobileMenu = ({
               href="#contact"
               data-slot="cta"
               iconMotion="slide-right"
-              iconRight={<ArrowRight focusable="false" strokeWidth={2} />}
               variant="outline"
               onClick={closeMenu}
             >

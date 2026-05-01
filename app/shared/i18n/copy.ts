@@ -86,6 +86,24 @@ export type HeroCopy = {
   visual: HeroVisualCopy;
 };
 
+/** Copy for one service item in the services section. */
+export type ServiceItemCopy = {
+  /** Visible service title. */
+  title: string;
+  /** Supporting service description. */
+  description: string;
+};
+
+/** Copy displayed by the services vertical. */
+export type ServicesCopy = {
+  /** Services section heading. */
+  title: string;
+  /** Supporting text displayed under the section heading. */
+  description: string;
+  /** Service items displayed in the section. */
+  items: readonly ServiceItemCopy[];
+};
+
 /** Copy owned by the home route. */
 export type HomeCopy = {
   /** Browser title for the home route. */
@@ -114,6 +132,8 @@ export type SiteCopy = {
   header: SiteHeaderCopy;
   /** Hero-specific copy. */
   hero: HeroCopy;
+  /** Services-specific copy. */
+  services: ServicesCopy;
   /** Home route copy. */
   home: HomeCopy;
   /** Error boundary copy. */
@@ -162,6 +182,28 @@ export const copy = {
           { label: "Performance", score: "88", status: "Good" },
         ],
       },
+    },
+    services: {
+      title: "Services",
+      description: "Focused audits and frontend fixes for speed, search, accessibility, and trust.",
+      items: [
+        {
+          title: "Technical SEO",
+          description: "Fix metadata, headings, links, indexability, and rendering issues.",
+        },
+        {
+          title: "Accessibility",
+          description: "Catch keyboard, focus, contrast, semantics, and labeling gaps.",
+        },
+        {
+          title: "Performance",
+          description: "Find slow scripts, heavy media, layout shifts, and Core Web Vitals issues.",
+        },
+        {
+          title: "Frontend fixes",
+          description: "Ship focused UI, layout, form, and content structure improvements.",
+        },
+      ],
     },
     home: {
       metaTitle: "Website Audits | audit.iacono.dev",

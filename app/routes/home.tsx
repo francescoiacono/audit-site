@@ -1,6 +1,7 @@
 import { getCopy, useCopy } from "@/shared/i18n";
 import { SkipLink } from "@/shared/ui";
 import { Hero } from "@/verticals/hero";
+import { Services } from "@/verticals/services";
 import { SiteHeader } from "@/verticals/site-header";
 
 const pageCopy = getCopy();
@@ -18,6 +19,7 @@ const Home = () => {
       <SiteHeader />
       <main id="main-content" tabIndex={-1}>
         <Hero />
+        <Services />
       </main>
     </>
   );
