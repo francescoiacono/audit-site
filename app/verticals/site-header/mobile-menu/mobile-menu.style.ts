@@ -87,6 +87,11 @@ export const styles = css({
 
   "& [data-slot='cta']": {
     width: "100%",
+
+    _focusVisible: {
+      boxShadow: "inset 0 0 0 2px token(colors.accent.blue)",
+      outline: "none",
+    },
   },
 
   "@media (prefers-reduced-motion: reduce)": {

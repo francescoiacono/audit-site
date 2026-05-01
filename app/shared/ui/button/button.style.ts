@@ -193,7 +193,7 @@ export const buttonRecipe = cva({
         borderColor: "text.primary",
         color: "background.page",
 
-        "&:not(:disabled):hover": {
+        "&:not(:disabled):is(:hover, :focus-visible)": {
           bg: "accent.blue",
           borderColor: "accent.blue",
         },
@@ -207,7 +207,7 @@ export const buttonRecipe = cva({
         borderColor: "accent.blue",
         color: "background.page",
 
-        "&:not(:disabled):hover": {
+        "&:not(:disabled):is(:hover, :focus-visible)": {
           bg: "text.primary",
           borderColor: "text.primary",
         },
@@ -221,7 +221,7 @@ export const buttonRecipe = cva({
         borderColor: "accent.green",
         color: "text.primary",
 
-        "&:not(:disabled):hover": {
+        "&:not(:disabled):is(:hover, :focus-visible)": {
           bg: "text.primary",
           borderColor: "text.primary",
           color: "background.page",
@@ -236,7 +236,7 @@ export const buttonRecipe = cva({
         borderColor: "text.primary",
         color: "text.primary",
 
-        "&:not(:disabled):hover": {
+        "&:not(:disabled):is(:hover, :focus-visible)": {
           bg: "text.primary",
           color: "background.page",
         },
@@ -250,7 +250,7 @@ export const buttonRecipe = cva({
         borderColor: "accent.blue",
         color: "accent.blue",
 
-        "&:not(:disabled):hover": {
+        "&:not(:disabled):is(:hover, :focus-visible)": {
           bg: "accent.blue",
           color: "background.page",
         },
@@ -264,7 +264,7 @@ export const buttonRecipe = cva({
         borderColor: "accent.green",
         color: "text.primary",
 
-        "&:not(:disabled):hover": {
+        "&:not(:disabled):is(:hover, :focus-visible)": {
           bg: "accent.green",
         },
       },
@@ -277,7 +277,7 @@ export const buttonRecipe = cva({
         borderColor: "transparent",
         color: "text.primary",
 
-        "&:not(:disabled):hover": {
+        "&:not(:disabled):is(:hover, :focus-visible)": {
           bg: "color-mix(in srgb, token(colors.text.primary) 8%, transparent)",
         },
       },
@@ -290,7 +290,7 @@ export const buttonRecipe = cva({
         borderColor: "transparent",
         color: "accent.blue",
 
-        "&:not(:disabled):hover": {
+        "&:not(:disabled):is(:hover, :focus-visible)": {
           bg: "color-mix(in srgb, token(colors.accent.blue) 10%, transparent)",
         },
       },
@@ -303,7 +303,7 @@ export const buttonRecipe = cva({
         borderColor: "transparent",
         color: "text.primary",
 
-        "&:not(:disabled):hover": {
+        "&:not(:disabled):is(:hover, :focus-visible)": {
           bg: "color-mix(in srgb, token(colors.accent.green) 16%, transparent)",
         },
       },
