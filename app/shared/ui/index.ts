@@ -8,4 +8,6 @@ export type {
   ButtonSize,
   ButtonVariant,
 } from "./button/index";
+export { SkipLink } from "./skip-link/index";
+export type { SkipLinkProps } from "./skip-link/index";
 export { Wrapper } from "./wrapper/index";

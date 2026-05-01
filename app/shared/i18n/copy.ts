@@ -16,6 +16,8 @@ export type SiteIdentityCopy = {
   homeAriaLabel: string;
   /** Accessible label for the primary navigation landmark. */
   primaryNavigationAriaLabel: string;
+  /** Visible label for the skip link shown to keyboard users. */
+  skipToMainContentLabel: string;
 };
 
 /** Copy displayed by the site header vertical. */
@@ -125,6 +127,7 @@ export const copy = {
       name: "audit.iacono.dev",
       homeAriaLabel: "audit.iacono.dev home",
       primaryNavigationAriaLabel: "Primary navigation",
+      skipToMainContentLabel: "Skip to main content",
     },
     header: {
       navigationItems: [
