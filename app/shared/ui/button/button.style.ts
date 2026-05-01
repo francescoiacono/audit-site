@@ -207,8 +207,9 @@ export const buttonRecipe = cva({
         color: "background.page",
 
         "&:not(:disabled):is(:hover, :focus-visible)": {
-          bg: "accent.blue",
-          borderColor: "accent.blue",
+          bg: "color-mix(in srgb, token(colors.text.primary) 92%, token(colors.background.page))",
+          borderColor:
+            "color-mix(in srgb, token(colors.text.primary) 92%, token(colors.background.page))",
         },
       },
     },
