@@ -10,6 +10,9 @@ export default defineConfig({
       bg: "background.page",
       color: "text.primary",
     },
+    html: {
+      scrollPaddingTop: "5.5rem",
+    },
   },
   theme: {
     extend: {

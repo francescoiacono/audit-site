@@ -161,7 +161,7 @@ export const copy = {
     hero: {
       title: "Audits for clearer, faster, more accessible websites.",
       description:
-        "I review the frontend details that affect trust, search visibility, and conversion, then turn the findings into a focused plan your site can act on.",
+        "I find frontend issues hurting trust, search, and conversion, then show what to fix.",
       primaryCta: { href: "#contact", label: "Book an audit" },
       secondaryCta: { href: "#services", label: "See services" },
       visual: {

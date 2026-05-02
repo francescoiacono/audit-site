@@ -5,7 +5,6 @@ export const styles = css({
   bg: "color-mix(in srgb, token(colors.border.subtle) 12%, token(colors.background.page))",
   borderBottom: "1px solid",
   borderColor: "border.subtle",
-  scrollMarginTop: "4rem",
 
   "& [data-slot='inner']": {
     display: "grid",
